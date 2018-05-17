@@ -14,14 +14,16 @@ Summary: CMake is an extensible, open-source system that manages the build proce
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/cmake-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/cmake-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/cmake-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/cmake-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/cmake-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/cmake-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/cmake-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/cmake-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/cmake-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/cmake-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/cmake-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/cmake-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cmake/badges/version.svg)](https://anaconda.org/conda-forge/cmake)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cmake/badges/downloads.svg)](https://anaconda.org/conda-forge/cmake)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cmake-green.svg)](https://anaconda.org/conda-forge/cmake) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cmake.svg)](https://anaconda.org/conda-forge/cmake) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cmake.svg)](https://anaconda.org/conda-forge/cmake) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cmake.svg)](https://anaconda.org/conda-forge/cmake) |
 
 Installing cmake
 ================
