@@ -1,4 +1,4 @@
-{% set version = "3.11.3" %}
+{% set version = "3.11.4" %}
 {% set major_minor = '.'.join(version.split(".")[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   url: https://cmake.org/files/v{{ major_minor }}/cmake-{{ version }}.tar.gz
   fn: cmake-{{ version }}.tar.gz
-  sha256: 287135b6beb7ffc1ccd02707271080bbf14c21d80c067ae2c0040e5f3508c39a
+  sha256: 8f864e9f78917de3e1483e256270daabc4a321741592c5b36af028e72bff87f5
 
 build:
   number: 0
