@@ -1,40 +1,44 @@
-{% set version = "3.11.4" %}
-{% set major_minor = '.'.join(version.split(".")[:2]) %}
+{% set version = "3.12.0" %}
 
 package:
   name: cmake
   version: {{ version }}
 
 source:
-  url: https://cmake.org/files/v{{ major_minor }}/cmake-{{ version }}.tar.gz
+  url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
   fn: cmake-{{ version }}.tar.gz
-  sha256: 8f864e9f78917de3e1483e256270daabc4a321741592c5b36af028e72bff87f5
+  sha256: 461dd6b49d636a044f65efcec0be2f448e531d3ac593966944407c3198bbb334
 
 build:
   number: 0
-  msvc_compiler: 14.0
+  skip: True  # [win and vc<14]
+  ignore_run_exports:
+    - vc
 
 requirements:
   build:
-    - toolchain
-    - bzip2 1.0.*  # [unix]
-    - curl >=7.44.0,<8  # [unix]
-    - expat 2.2.*  # [unix]
-    - ncurses 5.9*  # [unix]
-    - xz 5.2.*  # [unix]
-    - zlib 1.2.11  # [unix]
-    - libuv  # [unix]
-    - rhash  # [unix]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+
+  host:
+    - bzip2           # [unix]
+    - curl            # [unix]
+    - expat           # [unix]
+    - ncurses         # [unix]
+    - xz              # [unix]
+    - zlib            # [unix]
+    - libuv           # [unix]
+    - rhash           # [unix]
 
   run:
-    - bzip2 1.0.*  # [unix]
-    - curl >=7.44.0,<8  # [unix]
-    - expat 2.2.*  # [unix]
-    - ncurses 5.9*  # [unix]
-    - xz 5.2.*  # [unix]
-    - zlib 1.2.11  # [unix]
-    - libuv  # [unix]
-    - rhash  # [unix]
+    - bzip2           # [unix]
+    - curl            # [unix]
+    - expat           # [unix]
+    - ncurses         # [unix]
+    - xz              # [unix]
+    - zlib            # [unix]
+    - libuv           # [unix]
+    - rhash           # [unix]
     - vs2015_runtime  # [win]
 
 test:
@@ -62,3 +66,4 @@ extra:
     - msarahan
     - scopatz
     - tadeu
+    - marcelotrevisani

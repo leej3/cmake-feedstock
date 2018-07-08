@@ -11,9 +11,13 @@ set CMAKE_CONFIG="Release"
 
 dir /p %LIBRARY_PREFIX%\lib
 
+
 cmake -LAH -G"NMake Makefiles"                               ^
     -DCMAKE_BUILD_TYPE=%CMAKE_CONFIG%                        ^
     -DCMAKE_FIND_ROOT_PATH="%LIBRARY_PREFIX%"                ^
+    -DCMAKE_PREFIX_PATH="%PREFIX%"                           ^
+    -DCMAKE_CXX_STANDARD:STRING=17                           ^
+    -DCMake_HAVE_CXX_MAKE_UNIQUE:INTERNAL=TRUE               ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ..
 if errorlevel 1 exit 1
 
