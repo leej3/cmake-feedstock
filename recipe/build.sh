@@ -1,8 +1,11 @@
 #!/bin/sh
 
+export VERBOSE=1
 ./bootstrap \
+             --verbose \
              --prefix="${PREFIX}" \
              --system-libs \
+             --system-libuv \
              --no-qt-gui \
              --no-system-libarchive \
              --no-system-jsoncpp \
