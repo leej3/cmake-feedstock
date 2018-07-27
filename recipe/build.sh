@@ -14,4 +14,7 @@ export VERBOSE=1
              -DCMAKE_BUILD_TYPE:STRING=Release \
              -DCMAKE_FIND_ROOT_PATH="${PREFIX}" \
              -DCMAKE_INSTALL_RPATH="${PREFIX}/lib"
-make install -j${CPU_COUNT}
+cat CMakeFiles/CMakeError.log
+make install -j${CPU_COUNT} \
+             -DCURSES_LIBRARY="${PREFIX}/lib/libncurses.so" \
+             -DCURSES_INCLUDE_PATH="${PREFIX}/include"
