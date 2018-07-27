@@ -12,6 +12,8 @@ set -ex
              --parallel=${CPU_COUNT} \
              -- \
              -DCMAKE_BUILD_TYPE:STRING=Release \
+             -DCMAKE_FIND_ROOT_PATH="${PREFIX}" \
+             -DCMAKE_INSTALL_RPATH="${PREFIX}/lib" \
              -DCURSES_LIBRARY="${PREFIX}/lib/libncurses.so" \
              -DCURSES_INCLUDE_PATH="${PREFIX}/include" \
              -DBUILD_CursesDialog=ON
