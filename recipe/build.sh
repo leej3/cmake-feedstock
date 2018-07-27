@@ -12,5 +12,7 @@ set -ex
              --parallel=${CPU_COUNT} \
              -- \
              -DCMAKE_BUILD_TYPE:STRING=Release \
+             -DCURSES_LIBRARY="${PREFIX}/lib/libncurses.so" \
+             -DCURSES_INCLUDE_PATH="${PREFIX}/include" \
              -DBUILD_CursesDialog=ON
 make install -j${CPU_COUNT}
