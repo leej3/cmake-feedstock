@@ -1,4 +1,5 @@
 #!/bin/sh
+set -ex
 
 export VERBOSE=1
 ./bootstrap \
@@ -13,8 +14,7 @@ export VERBOSE=1
              -- \
              -DCMAKE_BUILD_TYPE:STRING=Release \
              -DCMAKE_FIND_ROOT_PATH="${PREFIX}" \
-             -DCMAKE_INSTALL_RPATH="${PREFIX}/lib"
+             -DCMAKE_INSTALL_RPATH="${PREFIX}/lib" \
+             -DBUILD_CursesDialog=ON
 cat CMakeFiles/CMakeError.log
-make install -j${CPU_COUNT} \
-             -DCURSES_LIBRARY="${PREFIX}/lib/libncurses.so" \
-             -DCURSES_INCLUDE_PATH="${PREFIX}/include"
+make install -j${CPU_COUNT}
