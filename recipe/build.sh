@@ -1,7 +1,6 @@
 #!/bin/sh
 set -ex
 
-export VERBOSE=1
 ./bootstrap \
              --verbose \
              --prefix="${PREFIX}" \
@@ -13,8 +12,5 @@ export VERBOSE=1
              --parallel=${CPU_COUNT} \
              -- \
              -DCMAKE_BUILD_TYPE:STRING=Release \
-             -DCMAKE_FIND_ROOT_PATH="${PREFIX}" \
-             -DCMAKE_INSTALL_RPATH="${PREFIX}/lib" \
              -DBUILD_CursesDialog=ON
-cat CMakeFiles/CMakeError.log
 make install -j${CPU_COUNT}
