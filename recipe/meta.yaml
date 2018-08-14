@@ -8,10 +8,6 @@ source:
   url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
   fn: cmake-{{ version }}.tar.gz
   sha256: b854a6d9049ad9e15458a7288ae719f7fbc842928d952753c9dabf8061350b29
-  patches:
-    # UseSWIG: Do not reset SWIG_MODULE_${name}_EXTRA_FLAGS
-    # https://gitlab.kitware.com/cmake/cmake/merge_requests/2243
-    - 2243.patch
 
 build:
   number: 0
