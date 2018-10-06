@@ -29,7 +29,7 @@ requirements:
     - xz              # [unix]
     - zlib            # [unix]
     - libuv           # [unix]
-    - rhash 1.3.4     # [unix]
+    - rhash           # [unix]
 
   run:
     - bzip2           # [unix]
@@ -39,7 +39,7 @@ requirements:
     - xz              # [unix]
     - zlib            # [unix]
     - libuv           # [unix]
-    - rhash 1.3.4     # [unix]
+    - rhash           # [unix]
     - vs2015_runtime  # [win]
 
 test:
