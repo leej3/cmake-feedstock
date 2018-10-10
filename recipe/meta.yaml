@@ -23,7 +23,7 @@ requirements:
 
   host:
     - bzip2           # [unix]
-    - curl            # [unix]
+    - curl 7.61.1           # [unix]
     - expat           # [unix]
     - ncurses         # [unix]
     - xz              # [unix]
