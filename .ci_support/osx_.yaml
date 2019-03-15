@@ -4,14 +4,18 @@ bzip2:
 - '1'
 c_compiler:
 - clang
+c_compiler_version:
+- '4'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 curl:
-- '7.59'
+- '7.64'
 cxx_compiler:
 - clangxx
+cxx_compiler_version:
+- '4'
 expat:
 - '2.2'
 macos_machine:
