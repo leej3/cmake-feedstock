@@ -1,4 +1,4 @@
-{% set version = "3.14.1" %}
+{% set version = "3.14.2" %}
 
 package:
   name: cmake
@@ -7,7 +7,7 @@ package:
 source:
   url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
   fn: cmake-{{ version }}.tar.gz
-  sha256: a93db72ebc30e62a46c401f2152705bc43b84c4c1af42d67e613ebd8c5cdb37e
+  sha256: 6de395e1daef36fd54a4c0a00349f61475bebc1d679f886a3c70d5e57b3b4fc7
 
 build:
   number: 0
