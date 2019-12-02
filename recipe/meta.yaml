@@ -40,6 +40,9 @@ requirements:
     - libuv           # [unix]
     - rhash           # [unix]
     - vs2015_runtime  # [win]
+  
+  run_constrained:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
 test:
   files:
