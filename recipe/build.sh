@@ -1,14 +1,20 @@
 #!/bin/sh
 set -ex
 
-# The CMake bootstrap build requires an internal version of libuv. If $CFLAGS
-# and friends include -I$PREFIX/include, the build picks up the real libuv
-# headers first, which breaks the build. The real build adds the needed
-# include paths correctly.
-export CFLAGS=$(echo "$CFLAGS" |sed -e "s|-I$PREFIX/include||")
-export DEBUG_CFLAGS=$(echo "$DEBUG_CFLAGS" |sed -e "s|-I$PREFIX/include||")
-export CXXFLAGS=$(echo "$CXXFLAGS" |sed -e "s|-I$PREFIX/include||")
-export DEBUG_CXXFLAGS=$(echo "$DEBUG_CXXFLAGS" |sed -e "s|-I$PREFIX/include||")
+if [[ "$target_platform" == osx* ]]; then
+  # When MACOSX_DEPLOYMENT_TARGET is set to 10.9, libc++ headers
+  # will only use symbols from libc++.dylib version shipped in 10.9
+  # and error out if newer features are used.
+  # Since we are using our own libc++.dylib, we don't have that
+  # restriction. Setting _LIBCPP_DISABLE_AVAILABILITY removes this
+  # error. This flag might be best added in the compiler activation
+  # package, but it's safe keeping this just for this recipe until
+  # the consequences are understood
+  # See https://bugzilla.mozilla.org/show_bug.cgi?id=1573733
+  export CPPFLAGS="$CPPFLAGS -D_LIBCPP_DISABLE_AVAILABILITY=1"
+  export CFLAGS="$CFLAGS -D_LIBCPP_DISABLE_AVAILABILITY=1"
+  export CXXFLAGS="$CXXFLAGS -D_LIBCPP_DISABLE_AVAILABILITY=1"
+fi
 
 ./bootstrap \
              --verbose \
@@ -29,3 +35,4 @@ export DEBUG_CXXFLAGS=$(echo "$DEBUG_CXXFLAGS" |sed -e "s|-I$PREFIX/include||")
              -DCMAKE_CXX_STANDARD:STRING=17
 
 make install -j${CPU_COUNT}
+

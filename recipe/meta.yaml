@@ -9,7 +9,7 @@ source:
   sha256: 51600879885967ea5fbfae9352d5de88de39d9c2cb1cb44e2ea2c374da35b182
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   ignore_run_exports:
     - vc
@@ -22,7 +22,7 @@ requirements:
 
   host:
     - bzip2           # [unix]
-    - curl 7.61.1           # [unix]
+    - libcurl         # [unix]
     - expat           # [unix]
     - ncurses         # [unix]
     - xz              # [unix]
@@ -32,7 +32,7 @@ requirements:
 
   run:
     - bzip2           # [unix]
-    - curl            # [unix]
+    - libcurl         # [unix]
     - expat           # [unix]
     - ncurses         # [unix]
     - xz              # [unix]
@@ -40,9 +40,6 @@ requirements:
     - libuv           # [unix]
     - rhash           # [unix]
     - vs2015_runtime  # [win]
-  
-  run_constrained:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
 test:
   files:
