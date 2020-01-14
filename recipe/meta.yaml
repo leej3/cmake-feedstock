@@ -21,7 +21,7 @@ source:
   #   - patches/git/0001-Add-more-debug-logging-to-cmFindCommon.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   ignore_run_exports:
     - vc
