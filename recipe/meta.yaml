@@ -1,4 +1,4 @@
-{% set version = "3.16.3" %}
+{% set version = "3.16.4" %}
 
 package:
   name: cmake
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
-  sha256: bc3939f2b45828da7f810c1abbe42d138c83095088763e7680ccfd65f35b99f2
+  sha256: 40e0dec6dc9e36820e001b8425aa4328a0b42f1915b14d68aee116e25c3d34df
   patches:
     - patches/3.16.2/0001-find_-Add-debug-logging-infrastructure.patch
     - patches/3.16.2/0002-find_-Use-debug-logging-infrastructure.patch
