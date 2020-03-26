@@ -21,6 +21,8 @@ build:
   skip: True  # [win and vc<14]
   ignore_run_exports:
     - vc
+  ignore_prefix_files:
+    - share/cmake-3.17/Modules/Internal/CPack/CPack.OSXScriptLauncher.in  # [linux]
 
 requirements:
   build:
