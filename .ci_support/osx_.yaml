@@ -5,7 +5,7 @@ bzip2:
 c_compiler:
 - clang
 c_compiler_version:
-- '9'
+- '10'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -13,17 +13,17 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '9'
+- '10'
 expat:
 - '2.2'
 libcurl:
-- '7.64'
+- '7'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
 ncurses:
-- '6.1'
+- '6.2'
 pin_run_as_build:
   bzip2:
     max_pin: x
