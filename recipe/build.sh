@@ -6,7 +6,7 @@ CMAKE_ARGS="$CMAKE_ARGS -DCURSES_INCLUDE_PATH=${PREFIX}/include -DBUILD_CursesDi
 CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_PREFIX_PATH=${PREFIX}"
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
-   if [[ "$target_platform" == osx-* && ("$MACOSX_DEPLOYMENT_TARGET" == 11.* || "$MACOSX_DEPLOYMENT_TARGET" == 10.15) ]]; then
+   if [[ "$target_platform" == osx-* ]] && [[ "$MACOSX_DEPLOYMENT_TARGET" == 11.* || "$MACOSX_DEPLOYMENT_TARGET" == "10.15" ]]; then
        CMAKE_ARGS="$CMAKE_ARGS -DCMake_HAVE_CXX_FILESYSTEM=1"
    else
        CMAKE_ARGS="$CMAKE_ARGS -DCMake_HAVE_CXX_FILESYSTEM=0"
