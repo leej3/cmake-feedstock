@@ -18,6 +18,8 @@ cmake -LAH -G"NMake Makefiles"                               ^
     -DCMAKE_PREFIX_PATH="%PREFIX%"                           ^
     -DCMAKE_CXX_STANDARD:STRING=17                           ^
     -DCMake_HAVE_CXX_MAKE_UNIQUE:INTERNAL=TRUE               ^
+    -DCMAKE_USE_SCHANNEL:BOOL=ON                             ^
+    -DCURL_WINDOWS_SSPI:BOOL=ON                              ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ..
 if errorlevel 1 exit 1
 
