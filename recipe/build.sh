@@ -20,10 +20,15 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
        -DCMAKE_USE_SYSTEM_LIBRARY_JSONCPP=OFF \
        . || (cat TryRunResults.cmake; false)
 else
+  if [[ $BOOTSTRAPPING == yes ]]; then
+      OPTS='--no-system-libs'
+  else
+      OPTS='--system-libs'
+  fi
   ./bootstrap \
        --verbose \
        --prefix="${PREFIX}" \
-       --system-libs \
+       $OPTS \
        --no-qt-gui \
        --no-system-libarchive \
        --no-system-jsoncpp \

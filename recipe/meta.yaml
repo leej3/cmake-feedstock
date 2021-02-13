@@ -17,7 +17,15 @@ source:
   #   - patches/git/0001-Add-more-debug-logging-to-cmFindCommon.patch
 
 build:
+{% if bootstrapping == 'yes' %}
+  number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+  script_env:
+    - BOOTSTRAPPING=yes
+{% else %}
+  # Keep above the number of the _bootstrapping package
   number: 1
+{% endif %}
   ignore_run_exports:
     - vc
 
@@ -28,30 +36,36 @@ requirements:
     - make            # [unix]
     - patch           # [not win]
     - m2-patch        # [win]
+{% if bootstrapping != 'yes' %}
     - cmake           # [build_platform != target_platform]
-    # - git
+{% endif %}
 
   host:
+    - openssl         # [unix]
+    - ncurses         # [unix]
+{% if bootstrapping != 'yes' %}
     - bzip2           # [unix]
     - libcurl         # [unix]
     - expat           # [unix]
-    - ncurses         # [unix]
     - xz              # [unix]
     - zlib            # [unix]
     - libuv           # [unix]
     - rhash           # [unix]
     - zstd            # [unix]
-
+{% endif %}
   run:
+    - openssl         # [unix]
+    - ncurses         # [unix]
+{% if bootstrapping != 'yes' %}
     - bzip2           # [unix]
     - libcurl         # [unix]
     - expat           # [unix]
-    - ncurses         # [unix]
     - xz              # [unix]
     - zlib            # [unix]
     - libuv           # [unix]
     - rhash           # [unix]
     - zstd            # [unix]
+{% endif %}
     - vs2015_runtime  # [win]
 
 test:
